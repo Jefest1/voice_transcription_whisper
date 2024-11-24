@@ -1,5 +1,4 @@
 streamlit
 ollama
 whisper
-tempfile
 Ipython
