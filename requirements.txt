@@ -2,3 +2,4 @@ streamlit
 ollama
 git+https://github.com/openai/whisper.git
 Ipython
+ffmpeg-python
