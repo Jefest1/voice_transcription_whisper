@@ -1,0 +1,4 @@
+channels:
+  - conda-forge
+dependencies:
+  - ffmpeg=7.1
