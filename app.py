@@ -2,8 +2,7 @@ import streamlit as st
 import whisper
 from IPython.display import display, Markdown
 import tempfile
-import ollama
-from ollama import Client
+from langchain_community.llms import Ollama
 
 st.set_page_config(page_title="Voice Transcription", layout='wide')
 
@@ -27,9 +26,16 @@ st.title("Voice transcription App using whisper")
 def load_whisper_model():
     return whisper.load_model('tiny')
 
+# Load the llama 3.2 model once
+
+
+@st.cache_resource
+def load_llama_():
+    return Ollama(model='llama3.2')
+
 
 model = load_whisper_model()
-
+llama_model = load_llama_()
 # Function to transcribe audio
 
 
@@ -60,17 +66,8 @@ def get_transcript(file):
 def summarize_transcription(message):
     message = f'Present the summary of the text transcribed from an audio in markdown which is below\n{
         message}'
-    client = Client(
-        host='http://localhost:11434',
-    )
-    response = client.chat(
-        model='llama3.2',
-        messages=[
-            {'role': 'system', 'content': 'You are an AI assistant for summarizing texts transcribed from an audio'},
-            {'role': 'user', 'content': message}
-        ]
-    )
-    return response['message']['content']
+    reponse = llama_model.invoke(message)
+    return reponse
 
 
 # Sidebar for file upload

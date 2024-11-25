@@ -2,3 +2,5 @@ streamlit
 ollama
 git+https://github.com/openai/whisper.git
 Ipython
+langchain
+langchain_community
