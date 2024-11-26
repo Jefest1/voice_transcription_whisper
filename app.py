@@ -21,8 +21,8 @@ st.markdown("""
 st.title("Voice transcription App using whisper")
 
 load_dotenv()
-# hf_token = os.getenv('HF_TOKEN')
-hf_token = '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'
+hf_token = os.getenv('HF_TOKEN')
+
 # Load the Whisper model once
 
 
@@ -32,8 +32,7 @@ def load_whisper_model():
 
 
 model = load_whisper_model()
-
-
+# load llama
 llama_model = "meta-llama/Llama-3.2-1B-Instruct"
 
 # Function to transcribe audio
