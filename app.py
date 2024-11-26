@@ -20,15 +20,11 @@ st.markdown("""
 st.title("Voice transcription App using whisper")
 
 # Load the Whisper model once
-
-
 @st.cache_resource
 def load_whisper_model():
     return whisper.load_model('tiny')
 
 # Load the llama 3.2 model once
-
-
 @st.cache_resource
 def load_llama_():
     return Ollama(model='llama3.2')
@@ -36,9 +32,8 @@ def load_llama_():
 
 model = load_whisper_model()
 llama_model = load_llama_()
+
 # Function to transcribe audio
-
-
 def transcribe_audio(file_path):
     try:
         result = model.transcribe(file_path)
@@ -48,8 +43,6 @@ def transcribe_audio(file_path):
         return None
 
 # function to get the transcripts
-
-
 def get_transcript(file):
     try:
         with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as temp_audio:
@@ -61,8 +54,6 @@ def get_transcript(file):
         st.error(f"Error processing recorded audio: {e}")
 
 # function to use llama to summarize the transcription
-
-
 def summarize_transcription(message):
     message = f'Present the summary of the text transcribed from an audio in markdown which is below\n{
         message}'
