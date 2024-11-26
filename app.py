@@ -3,6 +3,7 @@ import whisper
 from IPython.display import display, Markdown
 import tempfile
 from transformers import pipeline
+from dotenv import load_dotenv
 import os
 st.set_page_config(page_title="Voice Transcription", layout='wide')
 
@@ -18,7 +19,9 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 st.title("Voice transcription App using whisper")
-hf_token = os.getenv('hf_token')
+
+load_dotenv()
+hf_token = os.getenv('HF_TOKEN')
 # Load the Whisper model once
 
 
