@@ -21,7 +21,8 @@ st.markdown("""
 st.title("Voice transcription App using whisper")
 
 load_dotenv()
-hf_token = os.getenv('HF_TOKEN')
+# hf_token = os.getenv('HF_TOKEN')
+hf_token = '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'
 # Load the Whisper model once
 
 
